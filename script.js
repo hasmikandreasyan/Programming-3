@@ -43,14 +43,14 @@ function setup() {
         }
     }
 
-    setInterval(function () {
+   setInterval(function () {
 
         var x = Math.floor(Math.random() * matrix[0].length);
         var y = Math.floor(Math.random() * matrix.length);
         var lightning = new Lightning(x, y);
         lightning.xpel();
 
-    }, 1000);
+    }, 5000);
 
 
 
@@ -86,13 +86,17 @@ function draw() {
         PredatorArr[i].move();
     }
     for (var i in PersonArr) {
-        PersonArr[i].move();
+        PersonArr[i].move();  
         PersonArr[i].hndzel();
     }
-
+   
+      
 
 }
 function drawMatrix() {
+    if(grassArr.length == 0){
+        location.reload();
+    }
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 if (matrix[y][x] == 0) {
@@ -130,7 +134,7 @@ if (matrix[y][x] == 0) {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 4) {
-                fill("yellow");
+                fill("pink");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 5) {
@@ -140,6 +144,8 @@ if (matrix[y][x] == 0) {
         }
     }
 }
+
+
 
 
 

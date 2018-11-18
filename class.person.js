@@ -44,7 +44,7 @@ class Person extends Base{
                     matrix[iy][ix] = 0;
                     for (var i in grassArr) {
                         if (ix == grassArr[i].x && iy == grassArr[i].y) {
-                            grassArr.splice(i, 8);
+                            grassArr.splice(i, 5);
                             break;
                         }
                     }

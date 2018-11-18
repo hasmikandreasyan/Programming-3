@@ -9,23 +9,9 @@ class GrassEater extends Base {
         this.getNewCoordinates();
         return super.chooseCell(character);
     }
-    die() {
-        matrix[this.y][this.x] = 0;
-        for (var i in grassEaterArr) {
-            if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
-                grassArr.splice(i, 1);
-                break;
-            }
-        }
-
-
-
-    }
-
-
-
+   
     move() {
-        if (weather == 2) {
+        if (weather == 3) {
             this.die();
             console.log("lol");
         }
@@ -93,6 +79,20 @@ class GrassEater extends Base {
             matrix[filledCells[1]][filledCells[0]] = 2;
         }
     }
+    die() {
+        matrix[this.y][this.x] = 0;
+        for (var i in grassEaterArr) {
+            if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
+                grassArr.splice(i, 1);
+                break;
+            }
+        }
+
+
+
+    }
+
+
 
 
 
