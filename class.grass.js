@@ -1,7 +1,8 @@
 class Grass extends Base {
     constructor(x,y,index){
         super(x,y,index);
-        this.energy = 60;
+        this.energy = 20;
+        this.multiply = 60;
     }
     ///
     mult() {

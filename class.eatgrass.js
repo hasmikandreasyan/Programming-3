@@ -1,17 +1,34 @@
 ////////////GRASSEATER/////////////////
-class GrassEater extends Base{
-    constructor(x,y,index){
-        super(x,y,index)
+class GrassEater extends Base {
+    constructor(x, y, index) {
+        super(x, y, index)
         this.multiply = Math.round(random(30, 40));
-        this.energy = 20;
+        this.energy = 10;
     }
     chooseCell(character) {
         this.getNewCoordinates();
         return super.chooseCell(character);
     }
- 
-    move() {
+    die() {
+        matrix[this.y][this.x] = 0;
+        for (var i in grassEaterArr) {
+            if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
+                grassArr.splice(i, 1);
+                break;
+            }
+        }
 
+
+
+    }
+
+
+
+    move() {
+        if (weather == 2) {
+            this.die();
+            console.log("lol");
+        }
         var emptyCells = this.chooseCell(0);
         if (emptyCells.length != 0) {
             this.energy--;
@@ -26,6 +43,8 @@ class GrassEater extends Base{
 
             this.x = x;
             this.y = y;
+
+
             if (this.energy <= 0) {
                 this.die();
             }
@@ -76,17 +95,5 @@ class GrassEater extends Base{
     }
 
 
-    die() {
-        matrix[this.y][this.x] = 0;
-        for (var i in grassEaterArr) {
-            if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
-                grassArr.splice(i, 1);
-                break;
-            }
-        }
-
-
-
-    }
 
 }///////GRASSEATER END
